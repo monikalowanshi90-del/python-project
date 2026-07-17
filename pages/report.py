@@ -1,16 +1,16 @@
-import pages as pd
-import streamlit as st
+import pandas as pd 
+import streamlit as st 
 
 from database.mongodb import students_collection
 
-data = list(
+data= list(
     students_collection.find()
 )
 
-df = pd.DataFrame(data)
+df=pd.DataFrame(data)
 
 st.dataframe(df)
 
 st.bar_chart(
-      df["first_name"]
+    df["first_name"]
 )
